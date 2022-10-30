@@ -18,7 +18,7 @@ func DatabaseConnect() {
 
 	Conn, err = pgx.Connect(context.Background(), databaseUrl)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Unable connect to database: %v\n", err)
 		os.Exit(1)
 	}
 

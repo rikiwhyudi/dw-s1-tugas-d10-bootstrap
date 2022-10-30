@@ -11,8 +11,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../public/css/style.css" />
-    <link rel="stylesheet" href="../public/css/form.css" />
-    <title>Contact Me</title>
+    <!-- <link rel="stylesheet" href="../public/css/form.css" /> -->
+    <title>Register</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
@@ -41,81 +41,82 @@
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0 me-2">
             <li class="nav-item">
-              <a class="nav-link" href="/blog">Add Project</a>
+              <a class="nav-link active" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/form-login">Login</a>
             </li>
           </ul>
-          <a href="/" class="btn btn-dark btn-sm">Home</a>
+          <a href="/" class="btn btn-dark btn-sm">Contact Me</a>
         </div>
       </div>
     </nav>
 
-    <div class="container d-lg-flex justify-content-center my-5">
+    <div class="container d-lg-flex justify-content-center mt-5">
       <form
-        action="#"
-        class="form-control pb-5 px-5 rounded-4"
-        style="flex-basis: 50%"
+        action="/register"
+        method="POST"
+        class="form-control mt-5 pb-5 px-5 rounded-4"
+        style="flex-basis: 40%"
       >
-        <div class="my-3 text-center">
-          <h4>GET IN TOUCH</h4>
+        <div class="my-4">
+          <h4 class="text-center">REGISTER YOUR ACCOUNT</h4>
+          {{if .FlashData}}
+          <div
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+          >
+            <strong
+              >{{.FlashData}}
+              <a href="/form-login" class="alert-link">Login?</a></strong
+            >
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+          {{end}}
         </div>
         <div class="mb-3">
-          <label for="input-name"><b>Name:</b></label>
+          <label for="inputName"><b>Name:</b></label>
           <input
             type="text"
             class="form-control"
-            id="input-name"
+            id="inputName"
+            name="inputName"
             placeholder="John Doe"
             required
           />
         </div>
         <div class="mb-3">
-          <label for="input-email"><b>Email:</b></label>
+          <label for="inputEmail"><b>Email:</b></label>
           <input
             type="email"
             class="form-control"
-            id="input-email"
+            id="inputEmail"
+            name="inputEmail"
             placeholder="example@mail.com"
             required
           />
         </div>
-        <div class="row g-2 mb-3">
-          <div class="col-md">
-            <label for="input-phone"><b>Phone Number:</b></label>
-            <input
-              type="tel"
-              class="form-control"
-              id="input-phone"
-              placeholder="087771234567"
-              required
-            />
-          </div>
-          <div class="col-md">
-            <label for="input-subject"><b>Subject:</b></label>
-            <select id="input-subject" class="form-select" required>
-              <option value="" hidden>Select</option>
-              <option value="FrontEnd">FrontEnd</option>
-              <option value="BackEnd">BackEnd</option>
-              <option value="Fullstack">Fullstack</option>
-            </select>
-          </div>
-        </div>
-
         <div class="mb-4">
-          <label for="input-message"><b>Message:</b></label>
-          <textarea
+          <label for="inputPassword"><b>Password:</b></label>
+          <input
+            type="password"
             class="form-control"
-            id="input-message"
-            rows="4"
-            style="resize: none"
-            placeholder="Send message..."
+            id="inputPassword"
+            name="inputPassword"
+            placeholder="********"
             required
-          ></textarea>
+          />
         </div>
         <div class="d-grid">
-          <button onclick="showData()" class="btn btn-dark" type="submit">
-            submit
-          </button>
+          <button class="btn btn-dark" type="submit">submit</button>
         </div>
       </form>
     </div>
@@ -124,6 +125,5 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
-    <script src="../public/js/script.js"></script>
   </body>
 </html>
